@@ -1,5 +1,5 @@
 import { Command, type Context, type Client } from '../../structures/index';
-export default class Restart extends Command {
+export default class GuildList extends Command {
     constructor(client: Client);
-    run(client: Client, ctx: Context): Promise<void>;
+    run(client: Client, ctx: Context): Promise<any>;
 }
