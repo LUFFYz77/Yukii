@@ -1,0 +1,36 @@
+import { type Dj, type Guild, type Owner, type Playlist, type Role, type Setup, type Stay } from '@prisma/client';
+export default class ServerData {
+    private prisma;
+    constructor();
+    get(guildId: string): Promise<Guild>;
+    private createGuild;
+    setPrefix(guildId: string, prefix: string): Promise<void>;
+    getPrefix(guildId: string): Promise<string>;
+    updateLanguage(guildId: string, language: string): Promise<void>;
+    getLanguage(guildId: string): Promise<string>;
+    getSetup(guildId: string): Promise<Setup | null>;
+    setSetup(guildId: string, textId: string, messageId: string): Promise<void>;
+    deleteSetup(guildId: string): Promise<void>;
+    set_247(guildId: string, textId: string, voiceId: string): Promise<void>;
+    delete_247(guildId: string): Promise<void>;
+    get_247(guildId?: string): Promise<Stay | Stay[] | null>;
+    setDj(guildId: string, mode: boolean): Promise<void>;
+    getDj(guildId: string): Promise<Dj | null>;
+    getRoles(guildId: string): Promise<Role[]>;
+    addRole(guildId: string, roleId: string): Promise<void>;
+    removeRole(guildId: string, roleId: string): Promise<void>;
+    clearRoles(guildId: string): Promise<void>;
+    getPlaylist(userId: string, name: string): Promise<Playlist | null>;
+    getUserPlaylists(userId: string): Promise<Playlist[]>;
+    createPlaylist(userId: string, name: string): Promise<void>;
+    createPlaylistWithTracks(userId: string, name: string, tracks: string[]): Promise<void>;
+    deletePlaylist(userId: string, name: string): Promise<void>;
+    deleteSongsFromPlaylist(userId: string, playlistName: string): Promise<void>;
+    addTracksToPlaylist(userId: string, playlistName: string, tracks: string[]): Promise<void>;
+    removeSong(userId: string, playlistName: string, encodedSong: string): Promise<void>;
+    getTracksFromPlaylist(userId: string, playlistName: string): Promise<any>;
+    getAllOwners(): Promise<Owner[]>;
+    addOwner(ownerId: string): Promise<Owner>;
+    removeOwner(ownerId: string): Promise<void>;
+    checkOwners(ownerId: string): Promise<boolean>;
+}
